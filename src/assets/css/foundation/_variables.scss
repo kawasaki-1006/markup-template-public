@@ -1,0 +1,31 @@
+// color
+$COLOR_MAIN: hsl(0, 0%, 20%);
+$COLOR_TEXT: hsl(0, 0%, 20%);
+$COLOR_LINK: hsl(0, 0%, 20%);
+$COLOR_WHITE: #fff;
+$COLOR_ERROR: #e34042;
+
+// brake-point
+$BRAKE_POINT_SP: 601px;
+$BRAKE_POINT_TB_P: 769px;
+$BRAKE_POINT_TB_L: 993px;
+$BRAKE_POINT_PC: 1201px;
+
+// container-padding
+$PADDING_CONTAINER: 15;
+
+// container-size
+$CONTAINER_SM: #{$PADDING_CONTAINER * 2 + 750px};
+$CONTAINER_MD: #{$PADDING_CONTAINER * 2 + 970px};
+$CONTAINER_LG: #{$PADDING_CONTAINER * 2 + 1170px};
+
+// font-family
+$FONT_BASE: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'メイリオ', Meiryo, 'Hiragino Kaku Gothic ProN',
+sans-serif;
+$FONT_ALPHA: Arial, Helvetica, sans-serif;
+$FONT_MINCHO: '游明朝体', 'Yu Mincho', 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', serif;
+$FONT_ICON: 'Material Icons';
+$FONT_SIZE: 16;
+$FONT_WEIGHT: 400;
+
+$LINE_HEIGHT: 1.6;

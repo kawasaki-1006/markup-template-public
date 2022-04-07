@@ -1,0 +1,21 @@
+<%
+var title = typeof title === 'undefined' ? '' : `${title} - `;
+var url = typeof url === 'undefined' ? '' : url;
+var ogType = typeof ogType === 'undefined' ? 'article' : ogType;
+var path = typeof path === 'undefined' ? '' : path;
+%><%- include('_head_top.ejs', { path: path }) %>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="">
+<title><%= title %><%= BASE_TITLE %></title>
+<meta name="description" content="<%= DESCRIPTION %>">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="<%= BASE_TITLE %>">
+<meta property="og:image" content="<%= BASE_URL %>/ogimage.png">
+<meta property="og:description" content="<%= DESCRIPTION %>">
+<meta property="og:type" content="<%= ogType %>">
+<meta property="og:title" content="<%= title %><%= BASE_TITLE %>">
+<meta property="og:url" content="<%= BASE_URL %><%= url %>">
+<link rel="stylesheet" href="/assets/css/common.css" />

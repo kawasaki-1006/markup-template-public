@@ -1,0 +1,73 @@
+@use "../foundation/variables";
+@use "../foundation/functions";
+@use "../foundation/mixin";
+
+/*
+c-other
+*/
+
+@keyframes rotateLoading {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*↓消さないこと*/
+.c-loading {
+  background-color: rgba(255 255 255 / 80%);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.c-loading-inner {
+  @include mixin.animation(rotateLoading, 0.75s, linear, infinite);
+  animation-fill-mode: both;
+  border-radius: 50%;
+  bottom: 0;
+  box-shadow: 0 -10px 0 hsl(0, 0%, 0%), 7px -7px 0 hsl(0, 0%, 93%), 10px 0 0 hsl(0, 0%, 87%), 7px 7px 0 hsl(0, 0%, 80%),
+  0 10px 0 hsl(0, 0%, 73%), -7px 7px 0 hsl(0, 0%, 67%), -10px 0 0 hsl(0, 0%, 60%), -7px -7px 0 hsl(0, 0%, 40%);
+  height: 5px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 5px;
+}
+
+.c-pc-only {
+  @include mixin.mq-tbP {
+    display: none;
+  }
+}
+
+.c-sp-only {
+  display: none;
+  @include mixin.mq-tbP {
+    display: block;
+  }
+}
+
+br.c-sp-only {
+  @include mixin.mq-tbP {
+    display: inline;
+  }
+}
+
+.c-container {
+  margin: auto;
+  max-width: variables.$CONTAINER_LG;
+  padding: {
+    left: variables.$PADDING_CONTAINER + px;
+    right: variables.$PADDING_CONTAINER + px;
+  }
+}

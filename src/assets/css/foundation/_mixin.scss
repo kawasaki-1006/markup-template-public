@@ -1,0 +1,191 @@
+@use "sass:math";
+@use "variables";
+@use "functions";
+
+
+// Media Query
+@mixin mq-pc($is_max: false) {
+  $value: variables.$BRAKE_POINT_PC;
+  @if $is_max {
+    @media not all and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-tbL($is_max: false) {
+  $value: variables.$BRAKE_POINT_TB_L;
+  @if $is_max {
+    @media not all and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-tbP($is_max: false) {
+  $value: variables.$BRAKE_POINT_TB_P;
+  @if $is_max {
+    @media not all and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-sp($is_max: false) {
+  $value: variables.$BRAKE_POINT_SP;
+  @if $is_max {
+    @media not all and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq($width: 0, $is_max: false) {
+  @if $is_max {
+    @media not all and (min-width: #{$width}px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$width}px) {
+      @content;
+    }
+  }
+}
+
+// font-size
+@mixin fz($size: variables.$FONT_SIZE, $important: false) {
+  @if $important {
+    font-size: math.div($size, 16) + rem !important;
+  } @else {
+    font-size: math.div($size, 16) + rem;
+  }
+}
+
+@mixin fz-vw($font_size: 10, $viewport: 750) {
+  font-size: functions.get-vw($font_size, $viewport);
+}
+
+
+// Viewport Size
+@mixin vw($property: font-size, $size: 10, $viewport: 750) {
+  #{$property}: functions.get-vw($size, $viewport);
+}
+
+@mixin vh($property: height,  $size: 100, $calc: 0px) {
+  #{$property}: calc((#{$size + vh}) + #{$calc});
+  #{$property}: calc(var(--vh, 1vh) * #{$size} + #{$calc});
+}
+
+// Animation
+@mixin animation($animation-name, $s, $easing, $count, $end: none, $delay: 0) {
+  animation: {
+    delay: $delay;
+    duration: $s;
+    fill-mode: $end;
+    iteration-count: $count;
+    name: $animation-name;
+    timing-function: $easing;
+  }
+}
+
+// Accessibility Hidden
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// webFont icon
+@mixin icon-fontawesome() {
+  font-family: FontAwesome, serif;
+  line-height: 1;
+}
+
+@mixin icon-material($size: 24) {
+  direction: ltr;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: normal;
+  line-height: 1;
+  white-space: nowrap;
+  word-wrap: normal;
+  font: {
+    family: variables.$FONT_ICON;
+    feature-settings: 'liga';
+    style: normal;
+    weight: normal;
+  }
+  @include fz($size);
+}
+
+// object-fit
+@mixin object_fit($value: fill, $position: null) {
+  object-fit: $value;
+
+  @if $position {
+    font-family: 'object-fit: #{$value}; object-position: #{$position}', sans-serif;
+    object-position: $position;
+  } @else {
+    font-family: 'object-fit: #{$value}', sans-serif;
+  }
+}
+
+// three dot leader
+@mixin line-clamp($count: 3) {
+  @if type-of($count) != 'number' {
+    @error 'line-clampの引数は必ず数値で指定してください';
+  }
+
+  @if $count == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// hover
+@mixin hover($ie: false) {
+  &:focus {
+    @content;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if $ie {
+    @at-root .ua-ie &:hover {
+      @content;
+    }
+  }
+}

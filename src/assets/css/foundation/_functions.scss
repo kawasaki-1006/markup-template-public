@@ -1,0 +1,33 @@
+@use "sass:math";
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function get-vw($size, $viewport) {
+  $rate: math.div(100, $viewport);
+  @return $rate * $size * 1vw;
+}
+
+@function get-aspect-ratio($width: 0, $height: 0) {
+  @return calc(#{$height} / #{$width} * 100 * 1%);
+}
+
+@function set-common-path($fileName, $path: '../') {
+  @if ($fileName) {
+    @return '#{$path}img/common/#{$fileName}';
+  } @else {
+    @error '$fileNameがありません。';
+  }
+}
+
+@function set-image-path($fileName, $path: '../') {
+  @if ($fileName) {
+    @return '#{$path}img/#{$fileName}';
+  } @else {
+    @error '$fileNameがありません。';
+  }
+}

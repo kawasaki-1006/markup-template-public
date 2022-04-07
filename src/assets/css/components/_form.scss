@@ -1,0 +1,20 @@
+@use "../foundation/variables";
+@use "../foundation/functions";
+@use "../foundation/mixin";
+
+/*
+c-form
+*/
+
+/* form
+------------------------------------------------------------*/
+.c-form-error {
+  background-color: hsl(0, 100%, 97%);
+  border: solid 2px variables.$COLOR_ERROR;
+}
+
+/* radio
+-------------*/
+
+/* checkbox
+-------------*/

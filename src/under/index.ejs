@@ -1,0 +1,42 @@
+<%
+const MY_PATH = '../';
+const PAGE_NAME = '会社情報';
+const PAGE_ID = 'company'
+const props = {
+    path: MY_PATH
+};
+%><%- include(`${MY_PATH}components/_config.ejs`) %><%
+const IMAGE_PATH = set_image_path(PAGE_ID);
+const WEBP_PATH = set_webp_path(PAGE_ID);
+%><!DOCTYPE html>
+<html lang="ja">
+<head>
+    <%- include(`${MY_PATH}components/_meta.ejs`,
+    {
+    ...props,
+    title: PAGE_NAME,
+    url: `${PAGE_ID}/`
+    }) %>
+    <%- include(`${MY_PATH}components/_scripts.ejs`, { ...props }) %>
+</head>
+<body>
+<%- include(`${MY_PATH}components/_body_top.ejs`, { ...props }) %>
+<div id="root" class="l-wrapper">
+    <header id="header" class="l-header">
+        <%- include(`${MY_PATH}components/header/_index.ejs`, { ...props }) %>
+        <div class="l-header-pageTitle">
+            <h1>ページタイトル</h1>
+        </div>
+    </header>
+    <!-- / header-->
+
+    <main id="contents" class="l-contents">
+    </main>
+    <!-- / contents -->
+
+    <%- include(`${MY_PATH}components/footer/_index.ejs`, { ...props }) %>
+</div>
+<!-- / root -->
+<%- include(`${MY_PATH}components/_body_bottom.ejs`, { ...props }) %>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@use "../foundation/variables";
+@use "../foundation/functions";
+@use "../foundation/mixin";
+
+#contents {
+}
+
+.l-contents {
+  @include mixin.mq-pc {
+    flex: 1 0 auto;
+  }
+}

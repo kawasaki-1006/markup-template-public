@@ -1,0 +1,70 @@
+@use "variables";
+@use "functions";
+@use "mixin";
+
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium'), local('YuGothic-Medium');
+}
+
+@font-face {
+  font-family: 'Yu Gothic';
+  font-weight: bold;
+  src: local('Yu Gothic Bold'), local('YuGothic-Bold');
+}
+
+/* link
+------------------------------------------------------------*/
+a {
+  color: variables.$COLOR_LINK;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a,
+button {
+  @include mixin.hover(true) {
+    opacity: 0.8;
+    @include mixin.mq-tbL {
+      opacity: 1;
+    }
+  }
+}
+
+/* Fonts
+------------------------------------------------------------*/
+body {
+  color: variables.$COLOR_TEXT;
+  line-height: variables.$LINE_HEIGHT;
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+  word-wrap: break-word;
+  font-family: variables.$FONT_BASE;
+  font-weight: variables.$FONT_WEIGHT;
+  @include mixin.fz;
+  @include mixin.mq-tbP {
+    @include mixin.fz(13);
+  }
+
+  &.noScroll {
+    overflow: hidden;
+    @include mixin.mq-tbP {
+      height: 100vh;
+      left: 0;
+      position: fixed;
+      width: 100%;
+    }
+  }
+}
+
+input,
+button,
+textarea,
+select {
+  color: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}

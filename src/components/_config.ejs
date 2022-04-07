@@ -1,0 +1,14 @@
+<%
+BASE_URL = 'https://www.hogehoge.jp';
+BASE_TITLE = 'サイトタイトル';
+DESCRIPTION = "";
+MEDIA_QUERY = {
+    "pc": "(min-width: 993px)",
+    "tablet": "(min-width: 769px)"
+};
+ASSET_PATH = `/assets/`;
+COMMON_PATH = `${ASSET_PATH}img/common/`;
+set_file_path = (fileName, path) => `${path}${fileName}`;
+set_image_path = (page_id) => `${ASSET_PATH}img/${page_id}/`;
+set_webp_path = (page_id) => `${ASSET_PATH}img/webp/${page_id}/`;
+%>

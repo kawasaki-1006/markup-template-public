@@ -1,0 +1,104 @@
+@use "../foundation/variables";
+@use "../foundation/functions";
+@use "../foundation/mixin";
+
+.c-parts {
+  margin-bottom: 20px;
+}
+
+.c-parts-image {
+  color: hsl(0, 0%, 58%);
+  text-align: center;
+  @include mixin.fz(11);
+
+  .caption {
+    margin: 5px 0 0;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+}
+
+.c-parts-youtube {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  max-width: 560px;
+  @include mixin.mq-tbP {
+    padding-top: 56.25%;
+    position: relative;
+    width: 100%;
+    iframe {
+      height: 100% !important;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100% !important;
+    }
+  }
+}
+
+.c-parts-text {
+  iframe {
+    height: 400px;
+    width: 100%;
+    @include mixin.mq-tbP {
+      height: 250px;
+    }
+  }
+
+  ul {
+    margin-left: 2em;
+
+    li {
+      list-style: disc;
+    }
+  }
+
+  ol {
+    margin-left: 2.2em;
+
+    li {
+      list-style: decimal;
+    }
+  }
+
+  strong,
+  th {
+    font-weight: bold;
+  }
+
+  .alignCenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    &.alignRight {
+      display: inline;
+      margin: 0 0 2px 7px;
+      padding: 4px;
+    }
+
+    &.alignLeft {
+      display: inline;
+      margin: 0 7px 2px 0;
+      padding: 4px;
+    }
+  }
+
+  .alignRight {
+    float: right;
+  }
+
+  .alignLeft {
+    float: left;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
